@@ -75,7 +75,7 @@ var $main_nav = $('#main-nav');
       disableAt: false,
       customToggle: $toggle,
       levelSpacing: 40,
-      navTitle: 'Askbootstrap',
+      navTitle: 'สื่อสารและสารสนเทศ',
       levelTitles: true,
       levelTitleAsBack: true,
       pushContent: '#container',
