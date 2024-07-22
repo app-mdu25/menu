@@ -47,7 +47,7 @@
     }
 
     .card-custom {
-        height: 400px;
+        height: 200px;
         border: 5px solid #CC33CC; /* Normal red border color */
         border-radius: 20px; /* Rounded corners */
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow effect */
