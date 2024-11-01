@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+</head>
+<body>
+    <h2>Submit Information</h2>
+    <form id="dataForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="file">Upload File:</label>
+        <input type="file" id="file" name="file" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        document.getElementById("dataForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(document.getElementById("dataForm"));
+
+            fetch("YOUR_SERVER_URL", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Data submitted successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+
+                // Optional: Refresh the form
+                document.getElementById("dataForm").reset();
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'There was an error submitting your data!',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
